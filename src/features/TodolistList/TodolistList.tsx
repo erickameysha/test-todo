@@ -1,68 +1,26 @@
-import React, {useCallback, useEffect} from 'react'
-import '../app/App.css';
-import {Todolist} from '../features/Todolists/Todolist';
-import {AddItemForm} from '../components/AddItemForm/AddItemForm';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import {Menu} from '@mui/icons-material';
+import {useAppDispatch, useAppSelector} from "../../state/store";
 import {
-    addTodolistAC,
-    changeTodolistFilterAC,
-    changeTodolistTitleAC, changeTodolistTitleTC, createTodolistTC,
-    FilterValuesType, getTodolistsAC, getTodoTC,
+    changeTodolistFilterAC, changeTodolistTitleTC, createTodolistTC,
+    FilterValuesType, getTodoTC,
     removeTodolistAC, removeTodolistTC,
     TodolistDomainType
-} from '../state/todolists-reducer'
+} from "../../state/todolists-reducer";
+import React, {useCallback, useEffect} from "react";
 import {
-    addTaskAC, changeStatusTC,
+    changeStatusTC,
     changeTaskStatusAC,
     changeTaskTitleAC, changeTitleTC,
     createTasksTC,
-    removeTaskAC,
     removeTaskTC
-} from '../state/tasks-reducer';
-import {useDispatch, useSelector} from 'react-redux';
-import {AppRootStateType, useAppDispatch, useAppSelector} from '../state/store';
-import {TaskStatuses, TaskType, todolistsAPI} from './todolists-api'
+} from "../../state/tasks-reducer";
+import {TaskStatuses} from "../../api/todolists-api";
+import Grid from "@mui/material/Grid";
+import {AddItemForm} from "../../components/AddItemForm/AddItemForm";
+import Paper from "@mui/material/Paper";
+import {Todolist} from "../Todolists/Todolist";
+import {TasksStateType} from "../../app/App";
 
-
-export type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
-
-
-function App() {
-
-
-    return (
-        <div className="App">
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu">
-                        <Menu/>
-                    </IconButton>
-                    <Typography variant="h6">
-                        News
-                    </Typography>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-            <Container fixed>
-                <TodolistList/>
-            </Container>
-        </div>
-    );
-}
-
-export default App;
-
-export const TodolistList  = ( ) => {
+export const TodolistList = () => {
 
     const todolists = useAppSelector<Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useAppSelector<TasksStateType>(state => state.tasks)
@@ -142,7 +100,7 @@ export const TodolistList  = ( ) => {
                 })
             }
         </Grid>
-</>
+    </>
 
 
 }
