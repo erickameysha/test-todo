@@ -57,7 +57,11 @@ export enum TaskStatuses {
     Completed = 2,
     Draft = 3
 }
-
+export enum  ResultCode {
+    OK=0,
+    Error = 1,
+    Captcha= 10
+}
 export enum TaskPriorities {
     Low = 0,
     Middle = 1,
