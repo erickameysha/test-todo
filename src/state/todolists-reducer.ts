@@ -1,7 +1,7 @@
 import {v1} from 'uuid';
 import {ResultCode, todolistsAPI, TodolistType} from '../api/todolists-api'
 import {Dispatch} from "redux";
-import {RequestStatusType, setErrorAC, setStatusAC} from "../app/app_reducer";
+import {RequestStatusType, setErrorAC, setStatusAC} from "../app/app-reducer";
 import {handleServerAppError, handleServerNetworkError} from "../utils/error-utils";
 
 

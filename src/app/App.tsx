@@ -32,12 +32,13 @@ import {AppRootStateType, useAppDispatch, useAppSelector} from '../state/store';
 import {TaskStatuses, TaskType, todolistsAPI} from '../api/todolists-api'
 import {TodolistList} from "../features/TodolistList/TodolistList";
 import {CircularProgress, LinearProgress} from "@mui/material";
-import {RequestStatusType} from "./app_reducer";
+import {RequestStatusType} from "./app-reducer";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
 
 
 export type TasksStateType = {
     [key: string]: Array<TaskType>
+
 }
 
 
